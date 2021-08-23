@@ -1,0 +1,23 @@
+---------------------------------------------------------------
+-------------------------------1-------------------------------
+---------------------------------------------------------------
+
+Welcome to alonzo purple!
+Node configuration files: https://hydra.iohk.io/build/7189190/download/1/index.html
+
+Faucet:
+curl -v -XPOST "https://faucet.alonzo-purple.dev.cardano.org/send-money/$ADDRESS?apiKey=$KEY"
+
+where the privileged API Key  (1M test ada) is jv3NBtZeaL0lZUxgqq8slTttX3BzViI7
+
+PLEASE DO NOT PASS THIS ON TO ANYONE OUTSIDE THIS GROUP
+
+Node version: alonzo-purple-1.0.1
+DB Sync version: alonzo-white-1.4
+GraphQL: git revision cc7f4ddf78182fb14c8d34516e6c72408ad3eb35o somewhat works (some queries broken). still awaiting supported tag
+Wallet: https://github.com/input-output-hk/cardano-wallet/releases/tag/v2021-08-11
+Daedalus: https://buildkite.com/input-output-hk/daedalus/builds/18745 (awaiting sign-off from Wallet and Daedalus teams)
+
+---------------------------------------------------------------
+-------------------------------2-------------------------------
+---------------------------------------------------------------
