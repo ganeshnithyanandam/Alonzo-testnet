@@ -1,0 +1,63 @@
+nano ~/.bashrc
+
+a.
+#Download
+mkdir cardano
+wget https://hydra.iohk.io/build/7370331/download/1/cardano-node-1.28.0-linux.tar.gz
+tar -xf cardano-node-1.28.0-linux.tar.gz
+rm cardano-node-1.28.0-linux.tar.gz
+
+b.
+#Run passive node
+##docker run --name alonzo_purple -v /home/gannit/alonzo/node-ipc:/ipc -v /home/gannit/alonzo/data:/data -v /etc:/etc inputoutput/cardano-node:alonzo-purple-1.0.1 run --config etc/alonzo/alonzo-purple-config.json --topology etc/alonzo/alonzo-purple-topology.json --database-path etc/alonzo/db --socket-path etc/alonzo/db/node.socket --port 3001
+docker run --name alonzo_purple
+-v /home/gannit/alonzo/config:/config
+-v /home/gannit/alonzo/db:/db
+inputoutput/cardano-node:1.29.0-rc3
+--config config/alonzo-purple-config.json
+--topology  config/alonzo-purple-topology.json
+--database-path db
+--socket-path db/node.socket
+--host-addr 0.0.0.0 --port 3001
+
+
+docker run --name alonzo_purple \
+-v /home/gannit/alonzo/config:/config \
+-v /home/gannit/alonzo/db:/db \
+inputoutput/cardano-node:1.29.0-rc3 run \
+--config config/alonzo-purple-config.json \
+--topology  config/alonzo-purple-topology.json \
+--database-path db \
+--socket-path db/node.socket \
+--host-addr 0.0.0.0 --port 3001
+
+
+c. Set node socket path
+
+echo export CARDANO_NODE_SOCKET_PATH=/home/gannit/alonzo/db/node.socket >> .bashrc
+source .bashrc
+
+#Query the tip of the blockchain. Verify that the node is syncing.
+
+cardano-cli query tip --testnet-magic 8
+
+## outside wsl
+docker run -v node-ipc:/ipc -v data:/data inputoutput/cardano-node:alonzo-purple-1.0.1 run --config "E:/Alonzo/alonzo-config/alonzo-purple-topology.json" --topology "E:/Alonzo/alonzo-config/alonzo-purple-topology.json" --database-path db --socket-path node.socket --port 3001
+
+
+cardano-node run \
+		--topology E:/Alonzo/alonzo-config/alonzo-purple-topology.json \
+		--database-path db \
+		--socket-path node.socket \
+		--port 3001 \
+		--config E:/Alonzo/alonzo-config/alonzo-purple-config.json
+
+		------------------------------------------
+
+
+		cardano-node run \
+        		--topology /home/gannit/alonzo-purple/alonzo-purple-topology.json \
+        		--database-path db \
+        		--socket-path node.socket \
+        		--port 3001 \
+        		--config /home/gannit/alonzo-purple/alonzo-purple-config.json

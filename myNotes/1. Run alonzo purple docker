@@ -7,6 +7,7 @@ b.
 ##docker run -e NETWORK=testnet -v node-ipc:/ipc -v data:/data inputoutput/cardano-node:alonzo-purple-1.0.1 run --config /home/gannit/alonzo-purple/alonzo-purple-config.json --topology /home/gannit/alonzo-purple/alonzo-purple-topology.json ----database-path db --socket-path node.socket --port 3001
 docker run -v node-ipc:/ipc -v data:/data inputoutput/cardano-node:alonzo-purple-1.0.1 run --config "/home/gannit/alonzo-purple/alonzo-purple-config.json" --topology "/home/gannit/alonzo-purple/alonzo-purple-topology.json" --database-path db --socket-path node.socket --port 3001
 docker run --name alonzo_purple -v /etc/alonzo/node-ipc:/ipc -v /etc/alonzo/data:/data -v /etc:/etc inputoutput/cardano-node:alonzo-purple-1.0.1 run --config etc/alonzo/alonzo-purple-config.json --topology etc/alonzo/alonzo-purple-topology.json --database-path db --socket-path node.socket --port 3001
+docker run --name alonzo_purple -v /etc/alonzo/node-ipc:/ipc -v /etc/alonzo/data:/data -v /etc:/etc inputoutput/cardano-node:alonzo-purple-1.0.1 run --config etc/alonzo/alonzo-purple-config.json --topology etc/alonzo/alonzo-purple-topology.json --database-path etc/alonzo/db --socket-path etc/alonzo/db/node.socket --port 3001
 
 ## outside wsl
 docker run -v node-ipc:/ipc -v data:/data inputoutput/cardano-node:alonzo-purple-1.0.1 run --config "E:/Alonzo/alonzo-config/alonzo-purple-topology.json" --topology "E:/Alonzo/alonzo-config/alonzo-purple-topology.json" --database-path db --socket-path node.socket --port 3001
